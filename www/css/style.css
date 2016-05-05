@@ -2,10 +2,3 @@
 input[type="text"] {
 	border: 1px solid lightgray !important;
 }
-input[type="text"].border {
-	border: none !important;
-}
-.primary{
-	background-color: #0c63ee;
-    color: #fff;
-}

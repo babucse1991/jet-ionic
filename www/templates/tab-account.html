@@ -1,10 +1,15 @@
-<ion-view view-title={{vm.title}} ng-controller="AccountCtrl as vm">
+<ion-view view-title="Account">
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="vm.settings.enableFriends" ng-click="vm.showConfirm()">
+      <ion-item class="item-toggle">
         Enable Friends
-    </ion-toggle>
-
-      <div class="ion-android-arrow-dropdown-circle"  ng-click="vm.showConfirm()" ng-show="vm.settings.enableFriends">Show Me</div>
+        <label class="toggle">
+          <input type="checkbox" ng-model="settings.enableFriends">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
