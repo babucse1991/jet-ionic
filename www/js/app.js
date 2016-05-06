@@ -5,7 +5,18 @@
 //the 2nd parameter is an array of 'requires'
 //'starter.services' is found in services.js
 //'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'DashCtrl', 'Accountctrl','ProductsCtrl','ProductCtrl','ChatsCtrl','ChatDetailCtrl','FriendsCtrl','FriendDetailCtrl','SignInCtrl', 'starter.services'])
+angular.module('starter', ['ionic', 
+                           'DashCtrl',
+                           'Accountctrl',
+                           'ProductsCtrl',
+                           'ProductCtrl',
+                           'ChatsCtrl',
+                           'ChatDetailCtrl',
+                           'FriendsCtrl',
+                           'FriendDetailCtrl',
+                           'SignInCtrl',
+                           'SkuCtrl',
+                           'starter.services'])
 
 .run(function ($ionicPlatform) {
 	$ionicPlatform.ready(function () {
@@ -120,6 +131,21 @@ angular.module('starter', ['ionic', 'DashCtrl', 'Accountctrl','ProductsCtrl','Pr
 			'tab-friends': {
 				templateUrl: 'templates/friend-detail.html',
 				controller: 'FriendDetailCtrl'
+			}
+		}
+	})
+	
+	.state('tab.sku', {
+		url: '/sku',
+		views: {
+			'tab-sku': {
+				templateUrl: 'templates/tab-sku.html',
+				controller: 'SkuCtrl',
+					resolve: {
+						skuProducts: function (skuProducts) {
+							return skuProducts.top();
+						}
+					}
 			}
 		}
 	})

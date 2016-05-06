@@ -13,6 +13,21 @@ angular.module('starter.services', [])
             }
         }
     })
+     
+     .factory('skuProducts', function ($http) {
+        return {
+            top: function () {
+                var url = '../json/sku_id.json';
+                return $http.get(url);
+            },
+            get: function (skuProductUrl) {
+                // Final url is productUrl + the _type=json argument
+                //var url = skuProductUrl + "?_type=json";
+                return $http.get(url);
+            }
+        }
+    })
+    
 
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array

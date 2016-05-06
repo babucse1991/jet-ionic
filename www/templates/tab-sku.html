@@ -1,0 +1,20 @@
+<ion-view view-title="Sku"> <ion-content class="padding">
+<div class="list card">
+	<div class="item item-divider">{{skuProducts.status}}</div>
+	<div class="item item-body">
+		<h1>{{skuProducts.product_title}}</h1>
+		<img ng-src="{{skuProducts.main_image_url}}">
+		<div class="list">
+			<label class="item item-input item-stacked-label"> <span
+				class="input-label">Product Type</span> <input type="text"
+				ng-modle="skuProducts.status">
+			</label> <label class="item item-input item-stacked-label"> <span
+				class="input-label">Quantity</span> <input type="text" ng-modle="skuProducts.">
+			</label> <label class="item item-input item-stacked-label"> <span
+				class="input-label">brand</span> <input type="text" ng-modle="skuProducts.">
+			</label>
+
+
+		</div>
+	</div>
+</ion-content> </ion-view>
