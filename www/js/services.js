@@ -28,6 +28,27 @@ angular.module('starter.services', [])
         }
     })
     
+     .factory('skuListProducts', function ($http) {
+        return {
+            top: function () {
+                return $http.get('../json/SKU-Details.json')
+            },
+            get: function (skuProductUrl) {
+                return $http.get('../json/SKU-Details.json');
+            }
+        }
+    })
+    
+    .factory('skuOrderListProducts', function ($http) {
+        return {
+            top: function () {
+                return $http.get('../json/SKU-Orders.json')
+            },
+            get: function (skuProductUrl) {
+                return $http.get('../json/SKU-Orders.json');
+            }
+        }
+    })
 
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array
