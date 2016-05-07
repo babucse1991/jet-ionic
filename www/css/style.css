@@ -1,4 +1,19 @@
 /* Empty. Add your own CSS if you like */
-input[type="text"] {
+ input[type="text"] {
 	border: 1px solid lightgray !important;
+}
+ .head{
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 900;
+ }
+ .input-label
+ {
+    font-family: "Times New Roman";
+    color: #282828 ;
+ }
+
+ .item p {
+    color: #080000 !important;
+    font-size: 14px;
+    
 }

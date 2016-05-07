@@ -140,12 +140,12 @@ angular.module('starter', ['ionic',
 		views: {
 			'tab-sku': {
 				templateUrl: 'templates/tab-sku.html',
-				controller: 'SkuCtrl',
-					resolve: {
+				controller: 'SkuCtrl'
+					/*resolve: {
 						skuProducts: function (skuProducts) {
 							return skuProducts.top();
 						}
-					}
+					}*/
 			}
 		}
 	})

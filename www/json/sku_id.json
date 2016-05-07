@@ -1,75 +1,29 @@
-
-
+{
+  "brand": "Asus",
+  "correlation_id": "map_fd5d29a5137347a99c977c7304847659",
+  "inventory_by_fulfillment_node": [],
+  "main_image_url": "https://d1w0x2adoh4nzy.cloudfront.net/c9/da/c9da758e-36c3-455d-affa-77749e5e8c3e.jpg",
+  "map_implementation": "103",
+  "map_price": 513.95,
+  "merchant_id": "b7f808daefae4f2e9d0d5303a6029df9",
+  "merchant_sku": "11769190E",
+  "merchant_sku_id": "71ecf36c2cb2400eb70a5beadc64fb60",
+  "multipack_quantity": 1,
+  "package_height_inches": 12.0,
+  "package_length_inches": 12.0,
+  "package_width_inches": 6.0,
+  "producer_id": "ironman",
+  "product_description": "ASUS All-in-One PC ET1620IUTT - All-in-one - 1 x Celeron J1900 - RAM 2 GB - HDD 500 GB - HD Graphics - GigE - WLAN : 802.11b/g/n - Windows 8.1 64-bit - Monitor : LED 15.6 1366 x 768 ( HD ) touchscreen",
+  "product_title": "ASUS All-in-One PC ET1620IUTT - Celeron J1900 - 2 GB - 500 GB - LED 15.6&quot;",
+  "shipping_weight_pounds": 10.0,
+  "sku_last_update": "2016-01-13T19:30:55.0000000Z",
+  "standard_product_codes": [
     {
-        "status":"Available for Purchase",
-        "product_title":"My Product",
-        "jet_browse_node_id":1000001,
-        "standard_product_codes":[
-            {
-                "standard_product_code":"123456789012",
-                "standard_product_code_type":"UPC"
-            }
-        ],
-        "multipack_quantity":6,
-        "brand":"My Product's Brand",
-        "manufacturer":"My Product's Manufacturer",
-        "mfr_part_number":"AB-9874",
-        "product_description":"This is a terrific product that everyone should own.",
-        "bullets":[
-            "This is bullet line 1",
-            "This is bullet line 2"
-        ],
-        "number_units_for_price_per_unit":1,
-        "type_of_unit_for_price_per_unit":"each",
-        "shipping_weight_pounds":10,
-        "package_length_inches":12,
-        "package_width_inches":12,
-        "package_height_inches":12,
-        "display_length_inches":15,
-        "display_width_inches":12,
-        "display_height_inches":14,
-        "prop_65":true,
-        "legal_disclaimer_description":"Legal stuff goes here",
-        "cpsia_cautionary_statements":[
-            "choking hazard balloon",
-            "choking hazard small parts"
-        ],
-        "country_of_origin":"U.S.A.",
-        "safety_warning":"warning text goes here",
-        "fulfillment_time":1,
-        "msrp":6.99,
-        "map_price":6.49,
-        "map_implementation":"101",
-        "product_tax_code":"123",
-        "no_return_fee_adjustment":0.01,
-        "exclude_from_fee_adjustments":false,
-        "ships_alone":false,
-        "attributes_node_specific":[
-            {
-                "attribute_id":95,
-                "attribute_value":"80",
-                "attribute_value_unit":"count"
-            },
-            {
-                "attribute_id":119,
-                "attribute_value":"aqua"
-            },
-            {
-                "attribute_id":2,
-                "attribute_value":"blue"
-            }
-        ],
-        "main_image_url":"../img/cpu.jpg",
-        "swatch_image_url":"http://www.mydomain.com/images/myImage.png",
-        "alternate_images":[
-            {
-                "image_slot_id":1,
-                "image_url":"http://www.mydomain.com/images/myImage.png"
-            },
-            {
-                "image_slot_id":2,
-                "image_url":"http://www.mydomain.com/images/myImage.png"
-            }
-        ]
+      "standard_product_code": "889349007952",
+      "standard_product_code_type": "UPC"
     }
-
+  ],
+  "status": "Under Jet Review",
+  "sub_status": [],
+  "type_of_unit_for_price_per_unit": "each"
+}

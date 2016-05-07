@@ -17,13 +17,13 @@ angular.module('starter.services', [])
      .factory('skuProducts', function ($http) {
         return {
             top: function () {
-                var url = '../json/sku_id.json';
-                return $http.get(url);
+               // var url = ;
+                return $http.get('../json/sku_id.json')
             },
             get: function (skuProductUrl) {
                 // Final url is productUrl + the _type=json argument
                 //var url = skuProductUrl + "?_type=json";
-                return $http.get(url);
+                return $http.get('../json/sku_id.json');
             }
         }
     })
