@@ -6,6 +6,7 @@
 //'starter.services' is found in services.js
 //'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 
+                           'LocalStorageModule',
                            'DashCtrl',
                            'Accountctrl',
                            'ProductsCtrl',
@@ -17,10 +18,12 @@ angular.module('starter', ['ionic',
                            'SignInCtrl',
                            'SkuCtrl',
                            'SkuListCtrl',
+                           'RePasswordCtrl',
                            'SkuOrderListCtrl',
                            'starter.services'])
 
-                           .run(function ($ionicPlatform) {
+                           .run(function ($ionicPlatform,localStorageService) {
+                        	  
                         	   $ionicPlatform.ready(function () {
                         		   // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                         		   // for form inputs)
@@ -34,7 +37,7 @@ angular.module('starter', ['ionic',
                         	   });
                            })
 
-                           .config(function ($stateProvider, $urlRouterProvider) {
+                           .config(function ($stateProvider, $urlRouterProvider,localStorageServiceProvider) {
 
                         	   // Ionic uses AngularUI Router which uses the concept of states
                         	   // Learn more here: https://github.com/angular-ui/ui-router
@@ -48,6 +51,13 @@ angular.module('starter', ['ionic',
                         		   templateUrl: 'templates/sign-in.html',
                         		   controller: 'SignInCtrl'
                         	   })
+                        	   
+                        	    .state('Re-password', {
+                        		   url: '/Re-password',
+                        		   templateUrl: 'templates/Re-password.html',
+                        		   controller: 'RePasswordCtrl'
+                        	   })
+
 
                         	   .state('tab', {
                         		   url: "/tab",
@@ -186,5 +196,6 @@ angular.module('starter', ['ionic',
 
                         	   // if none of the above states are matched, use this as the fallback
                         	   $urlRouterProvider.otherwise('/sign-in');
-
+                        	   localStorageServiceProvider
+                     	      .setPrefix('ls');
                            });

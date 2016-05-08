@@ -1,4 +1,4 @@
-angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $state,localStorageService, $ionicModal) {
+angular.module('RePasswordCtrl', []) .controller('RePasswordCtrl', function($scope, $state,localStorageService, $ionicModal) {
 	  
 	 /* $scope.signIn = function(user) {
 	    console.log('Sign-In', user);
@@ -30,26 +30,6 @@ angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $sta
         }
 	}
 	
-	$scope.openTaskModal  = function() {
-		$scope.newTaskModal.show();
-	}
-	$ionicModal.fromTemplateUrl('templates\Re-password.html', {
-	    scope: $scope,
-	    animation: 'slide-in-up'
-	}).then(function (modal) {
-	    $scope.newTaskModal = modal;
-	});
 	
-	/*
-	$scope.addRePassword = function (size){
-		var modalInstance = $ionicModal.fromTemplateUrl({ 'templates\Re-password.html',
-			
-		});
-		modalInstance.result.then(function(selectedItem) {
-
-		}, function() {
-			$scope.getCompanyData();
-
-		});
-	};*/
+	
 });
