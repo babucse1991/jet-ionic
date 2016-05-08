@@ -1,5 +1,25 @@
 angular.module('starter.services', [])
 
+
+	.factory('tokenService', function ($http) {
+	    return {
+	        post: function (userModel) {
+	            var url = '';
+	            return $http({
+	    			url: 'https://merchant-api.jet.com/api/token',
+	    			method	: 'POST',
+	    			headers	: { 'Authorization' :  'Bearer ' + userModel.merchantId },
+	    			dataType: 'json',
+	    			data	: userModel
+	    		});
+	        },
+	        get: function (productUrl) {
+	            // Final url is productUrl + the _type=json argument
+	            var url = productUrl + "?_type=json";
+	            return $http.get(url);
+	        }
+	    }
+	})
     .factory('Products', function ($http) {
         return {
             top: function () {
@@ -14,16 +34,23 @@ angular.module('starter.services', [])
         }
     })
      
-     .factory('skuProducts', function ($http) {
+     .factory('skuProducts', function ($http, localStorageService) {
         return {
             top: function () {
                // var url = ;
                 return $http.get('../json/sku_id.json')
             },
-            get: function (skuProductUrl) {
-                // Final url is productUrl + the _type=json argument
-                //var url = skuProductUrl + "?_type=json";
-                return $http.get('../json/sku_id.json');
+            get: function (skuProductUrl, skuId) {
+//                return $http.get('../json/sku_id.json');
+                $scope.bearerToken = localStorageService.get('bearerToken');
+            	
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api/merchant-skus/' + skuId,
+	    			method	: 'POST',
+	    			headers	: { 'Authorization' :  'Bearer ' + $scope.bearerToken.id_token },
+	    			dataType: 'json',
+	    			data	: userModel
+	    		});
             }
         }
     })

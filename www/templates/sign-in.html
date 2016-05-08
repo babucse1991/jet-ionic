@@ -4,11 +4,15 @@
           <div class="list">
             <label class="item item-input">
               <span class="input-label">Username</span>
-              <input type="text" ng-model="user.username">
+              <input type="text" ng-model="user.user">
             </label>
             <label class="item item-input">
               <span class="input-label">Password</span>
-              <input type="password" ng-model="user.password">
+              <input type="password" ng-model="user.pass">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">API Key</span>
+              <input type="text" ng-model="user.merchantId">
             </label>
           </div>
           <div class="padding">
@@ -23,7 +27,8 @@
             </p>
           </div></form>
           <div ng-init="getLogIn()"ng-repeat="user in users track by $index">
-          <span class="input-label">Username:{{user.username}}</span>
-           <span class="input-label">Password:{{user.password}}</span></div>
+          	<span class="input-label">Username:{{user.user}}</span>
+           <span class="input-label">Password:{{user.pass}}</span></div>
+           <span class="input-label">API Key:{{user.merchantId}}</span></div>
         </ion-content>
       </ion-view>
