@@ -1,34 +1,24 @@
-<ion-view view-title="Sign-In">
+<ion-view view-title="Log In">
         <ion-content>
-       <form ng-submit="createLogIn()">
-          <div class="list">
-            <label class="item item-input">
-              <span class="input-label">Username</span>
-              <input type="text" ng-model="user.user">
-            </label>
-            <label class="item item-input">
-              <span class="input-label">Password</span>
-              <input type="password" ng-model="user.pass">
-            </label>
-            <label class="item item-input">
-              <span class="input-label">API Key</span>
-              <input type="text" ng-model="user.merchantId">
-            </label>
-          </div>
-          <div class="padding">
-            <button type="submit" class="button button-block button-positive">
-              Sign-In
-            </button>
-            <p class="text-center">
-              <a href="">Forgot password</a>
-            </p>
-            <p class="text-center">
+<!-- Form Module-->
+<div class="module form-module">
+ 
+  <div class="form">
+    <h2 class="head">Login</h2>
+    <form  ng-submit="createLogIn()">
+      <input type="text" ng-model="user.user" placeholder="Username"/>
+      <input type="password" ng-model="user.pass" placeholder="Password"/>
+       <input type="text"placeholder="API Key" ng-model="user.merchantId">
+      <button  type="submit" class="button button-block button-calm">Login</button>
+      <p class="text-center">
               <a href="#/Re-password">Retype password</a>
             </p>
-          </div></form>
-          <div ng-init="getLogIn()"ng-repeat="user in users track by $index">
+    </form>
+</div>
+  <div ng-init="getLogIn()"ng-repeat="user in users track by $index">
           	<span class="input-label">Username:{{user.user}}</span>
-           <span class="input-label">Password:{{user.pass}}</span></div>
+           <span class="input-label">Password:{{user.pass}}</span>
            <span class="input-label">API Key:{{user.merchantId}}</span></div>
+  </div>
         </ion-content>
       </ion-view>

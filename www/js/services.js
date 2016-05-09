@@ -33,28 +33,23 @@ angular.module('starter.services', [])
             }
         }
     })
-     
-     .factory('skuProducts', function ($http, localStorageService) {
+    
+         .factory('skuProducts', function ($http,localStorageService) {
         return {
-            top: function () {
-               // var url = ;
-                return $http.get('../json/sku_id.json')
-            },
-            get: function (skuProductUrl, skuId) {
-//                return $http.get('../json/sku_id.json');
-                $scope.bearerToken = localStorageService.get('bearerToken');
-            	
+            get: function (skuId) {
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>userData>>>>>"+ JSON.stringify(bearerToken.id_token));
                 return $http({
 	    			url: 'https://merchant-api.jet.com/api/merchant-skus/' + skuId,
-	    			method	: 'POST',
-	    			headers	: { 'Authorization' :  'Bearer ' + $scope.bearerToken.id_token },
-	    			dataType: 'json',
-	    			data	: userModel
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
 	    		});
             }
         }
     })
     
+       
      .factory('skuListProducts', function ($http) {
         return {
             top: function () {

@@ -1,6 +1,6 @@
 angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $state,localStorageService, tokenService, $location ) {
 	  
-	 
+
 	var userData = 'user';
 	var bearerTokenData = 'bearerToken';
 
@@ -13,11 +13,11 @@ angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $sta
 
 		tokenService.post($scope.user).success(function (response) {
 			$scope.bearerToken= response;
-			console.log(">>>>>>1st time login : " + $scope.bearerToken);
+			console.log(">>>>>>1st time login : " + JSON.stringify($scope.bearerToken));
 			$scope.users.push($scope.user);
 			localStorageService.set(userData, $scope.users);
 			localStorageService.set(bearerTokenData, $scope.bearerToken);
-			$location.path("/dash");
+			$location.path("/tab/dash");
 		}) ;       
 
 	}

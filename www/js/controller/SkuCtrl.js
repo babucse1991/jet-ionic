@@ -1,6 +1,7 @@
-angular.module('SkuCtrl', []).controller('SkuCtrl', function ($scope, skuProducts) {
+angular.module('SkuCtrl', []).controller('SkuCtrl', function ($scope, skuProducts,localStorageService) {
       
 	var skuId = 'E95071';
+    
     skuProducts.get(skuId).success(function (response) {
         $scope.skuProducts = response;
        // $scope.skuProducts.standard_product_codes.stdProduct =skuProducts.response;
