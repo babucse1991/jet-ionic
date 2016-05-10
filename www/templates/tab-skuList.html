@@ -1,12 +1,10 @@
-<ion-view view-title="SkuList">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div ng-repeat="listProduct in skuListProducts.sku_urls">
-          <a href="#/tab/skuListView/{{listProduct}}">{{listProduct}}</a>
-        </div>
-      </div>
-    </div>
-  </ion-content>
+<ion-view view-title="SKU List">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-avatar" ng-repeat="skuId in skuListProducts.sku_urls" type="item-text-wrap" href="#/tab/sku/{{skuId}}">
+                <img ng-src="{{product.smallThumbnail}}">
+                <h2>{{skuId}}</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

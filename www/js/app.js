@@ -16,7 +16,7 @@ angular.module('starter', ['ionic',
                            'FriendsCtrl',
                            'FriendDetailCtrl',
                            'SignInCtrl',
-                           'SkuCtrl',
+                           'SkuDetailsCtrl',
                            'SkuListCtrl',
                            'RePasswordCtrl',
                            'SkuOrderListCtrl',
@@ -148,17 +148,18 @@ angular.module('starter', ['ionic',
                         		   }
                         	   })
 
-                        	   .state('tab.sku', {
-                        		   url: '/sku',
+                        	   .state('tab.tab-sku', {
+                        		   url: '/sku/{skuUrl:.*}',
                         		   views: {
                         			   'tab-sku': {
                         				   templateUrl: 'templates/tab-sku.html',
-                        				   controller: 'SkuCtrl'
-                        					   /*resolve: {
-						skuProducts: function (skuProducts) {
-							return skuProducts.top();
-						}
-					}*/
+                        				   controller: 'SkuDetailsCtrl',
+                        				   resolve: {
+                        					   skuUrlReturn: function (skuProducts, $stateParams) {
+                        						   var skuUrl = $stateParams.skuUrl;
+                        						   return skuProducts.get(skuUrl);
+                        					   }
+                        				   }
                         			   }
                         		   }
                         	   })
