@@ -1,6 +1,6 @@
 angular.module('SkuCtrl', []).controller('SkuCtrl', function ($scope, skuProducts,localStorageService) {
       
-	var skuId = 'E95071';
+	var skuId = 'merchant-skus/NA1193';
     
     skuProducts.get(skuId).success(function (response) {
         $scope.skuProducts = response;

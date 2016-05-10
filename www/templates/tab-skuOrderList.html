@@ -3,8 +3,8 @@
     <div class="list card">
       <div class="item item-divider">Recent Updates</div>
       <div class="item item-body">
-        <div ng-repeat="listProduct in skuOrderListProducts">
-         {{listProduct}}
+        <div ng-repeat="listProduct in skuOrderListProducts.order_urls">
+        <a href="{{listProduct}}">{{listProduct}}</a> 
         </div>
       </div>
     </div>

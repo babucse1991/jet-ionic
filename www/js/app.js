@@ -20,6 +20,7 @@ angular.module('starter', ['ionic',
                            'SkuListCtrl',
                            'RePasswordCtrl',
                            'SkuOrderListCtrl',
+                           'SkuListViewCtrl',
                            'starter.services'])
 
                            .run(function ($ionicPlatform,localStorageService) {
@@ -168,6 +169,17 @@ angular.module('starter', ['ionic',
                         			   'tab-SkuList': {
                         				   templateUrl: 'templates/tab-skuList.html',
                         				   controller: 'SkuListCtrl'
+                        					  
+                        			   }
+                        		   }
+                        	   })
+                        	   
+                        	   .state('tab.skuListView', {
+                        		   url: '/skuListView/:listProduct.sku_urls',
+                        		   views: {
+                        			   'tab-SkuList': {
+                        				   templateUrl: 'templates/tab-skuListView.html',
+                        				   controller: 'SkuListViewCtrl'
                         					  
                         			   }
                         		   }

@@ -40,7 +40,7 @@ angular.module('starter.services', [])
             	var bearerToken = localStorageService.get('bearerToken');
                 console.log(">>>userData>>>>>"+ JSON.stringify(bearerToken.id_token));
                 return $http({
-	    			url: 'https://merchant-api.jet.com/api/merchant-skus/' + skuId,
+	    			url: 'https://merchant-api.jet.com/api/' + skuId,
 	    			method	: 'GET',
 	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
 	    			dataType: 'json'
