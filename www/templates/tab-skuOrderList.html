@@ -1,11 +1,10 @@
 <ion-view view-title="SkuList">
   <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
+    <div class="list">
       <div class="item item-body">
-        <div ng-repeat="listProduct in skuOrderListProducts.order_urls">
-        <a href="{{listProduct}}">{{listProduct}}</a> 
-        </div>
+        <ion-item class="item-avatar" ng-repeat="orderId in skuOrderListProducts.order_urls" href="#/tab/skuOrderDetail/{{orderId}}">
+       <h2>{{orderId}}</h2>
+        </ion-item>
       </div>
     </div>
   </ion-content>

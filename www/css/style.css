@@ -44,6 +44,8 @@ input[type="password"] {
   box-sizing: border-box;
   font-size: 14px;
 }
-
+.spacePadding{
+	padding-top: 110px;
+}
 
 

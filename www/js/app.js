@@ -21,6 +21,7 @@ angular.module('starter', ['ionic',
                            'RePasswordCtrl',
                            'SkuOrderListCtrl',
                            'SkuListViewCtrl',
+                           'SkuOrderDetailCtrl',
                            'starter.services'])
 
                            .run(function ($ionicPlatform,localStorageService) {
@@ -148,11 +149,22 @@ angular.module('starter', ['ionic',
                         		   }
                         	   })
 
-                        	   .state('tab.tab-sku', {
-                        		   url: '/sku/{skuUrl:.*}',
+                        	 /*  .state('tab.tab-sku', {
+                        		   url: '/sku',
                         		   views: {
                         			   'tab-sku': {
                         				   templateUrl: 'templates/tab-sku.html',
+                        				   controller: 'SkuListCtrl',
+                        				  
+                        			   }
+                        		   }
+                        	   })*/
+                        	   
+                        	    .state('tab.skuListView', {
+                        		   url:  '/sku/{skuUrl:.*}',
+                        		   views: {
+                        			   'tab-SkuList': {
+                        				   templateUrl: 'templates/tab-skuDetail.html',
                         				   controller: 'SkuDetailsCtrl',
                         				   resolve: {
                         					   skuUrlReturn: function (skuProducts, $stateParams) {
@@ -160,6 +172,7 @@ angular.module('starter', ['ionic',
                         						   return skuProducts.get(skuUrl);
                         					   }
                         				   }
+                        					  
                         			   }
                         		   }
                         	   })
@@ -175,16 +188,7 @@ angular.module('starter', ['ionic',
                         		   }
                         	   })
                         	   
-                        	   .state('tab.skuListView', {
-                        		   url: '/skuListView/:listProduct.sku_urls',
-                        		   views: {
-                        			   'tab-SkuList': {
-                        				   templateUrl: 'templates/tab-skuListView.html',
-                        				   controller: 'SkuListViewCtrl'
-                        					  
-                        			   }
-                        		   }
-                        	   })
+                        	  
                         	   
                         	    .state('tab.skuOrderList', {
                         		   url: '/skuOrderList',
@@ -193,6 +197,22 @@ angular.module('starter', ['ionic',
                         				   templateUrl: 'templates/tab-skuOrderList.html',
                         				   controller: 'SkuOrderListCtrl'
                         					  
+                        			   }
+                        		   }
+                        	   })
+                        	   
+                        	    .state('tab.skuOrderDetail', {
+                        		   url: '/skuOrderDetail/{orderUrl:.*}',
+                        		   views: {
+                        			   'tab-OrderList': {
+                        				   templateUrl: 'templates/tab-skuOrderDetail.html',
+                        				   controller: 'SkuOrderDetailCtrl',
+                        					   resolve: {
+                        						   orderUrlReturn: function (skuOrderDetailProducts, $stateParams) {
+                            						   var orderUrl = $stateParams.orderUrl;
+                            						   return skuOrderDetailProducts.get(orderUrl);
+                            					   }
+                            				   }
                         			   }
                         		   }
                         	   })

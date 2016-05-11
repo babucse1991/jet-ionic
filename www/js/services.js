@@ -50,26 +50,50 @@ angular.module('starter.services', [])
     })
     
        
-     .factory('skuListProducts', function ($http) {
+     .factory('skuListProducts', function ($http,localStorageService) {
         return {
-            top: function () {
-                return $http.get('../json/SKU-Details.json')
-            },
-            get: function (skuProductUrl) {
-                return $http.get('../json/SKU-Details.json');
-            }
+          
+        	 get: function () {
+             	var bearerToken = localStorageService.get('bearerToken');
+                 console.log(">>>userData333333333>>>>>"+ JSON.stringify(bearerToken.id_token));
+                 return $http({
+ 	    			url: 'https://merchant-api.jet.com/api/merchant-skus' ,
+ 	    			method	: 'GET',
+ 	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+ 	    			dataType: 'json'
+ 	    		});
+             }
         }
     })
     
-    .factory('skuOrderListProducts', function ($http) {
+    .factory('skuOrderListProducts', function ($http,localStorageService){
         return {
-            top: function () {
-                return $http.get('../json/SKU-Orders.json')
-            },
-            get: function (skuProductUrl) {
-                return $http.get('../json/SKU-Orders.json');
+       	 get: function () {
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>userData222222222>>>>>"+ JSON.stringify(bearerToken.id_token));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api/orders/directedCancel' ,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
             }
-        }
+       }
+    })
+    
+     .factory('skuOrderDetailProducts', function ($http,localStorageService){
+        return {
+       	 get: function (orderId) {
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>userData11111111111>>>>>"+ JSON.stringify(bearerToken.id_token));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api' + orderId ,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
     })
 
     .factory('Chats', function () {

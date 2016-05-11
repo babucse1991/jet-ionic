@@ -1,8 +1,8 @@
 <ion-view view-title="Log In">
         <ion-content>
 <!-- Form Module-->
+<div class="spacePadding"></div>
 <div class="module form-module">
- 
   <div class="form">
     <h2 class="head">Login</h2>
     <form  ng-submit="createLogIn()">
@@ -15,10 +15,10 @@
             </p>
     </form>
 </div>
-  <div ng-init="getLogIn()"ng-repeat="user in users track by $index">
+ <!--  <div ng-init="getLogIn()"ng-repeat="user in users track by $index">
           	<span class="input-label">Username:{{user.user}}</span>
            <span class="input-label">Password:{{user.pass}}</span>
-           <span class="input-label">API Key:{{user.merchantId}}</span></div>
+           <span class="input-label">API Key:{{user.merchantId}}</span></div> -->
   </div>
         </ion-content>
       </ion-view>

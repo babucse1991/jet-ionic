@@ -1,39 +1,39 @@
 <ion-view view-title="Sku"> <ion-content class="padding">
 <div class="list card">
-<!-- <div class="item item-divider">{{skuProducts.status}}</div> -->
+
 	<div class="item item-body">
-		<h2 class="head">{{skuProducts.product_title}}</h2>
+		<h2 class="head">{{skuProducts.data.product_title}}</h2>
 		<div class="item item-image">
-		<img ng-src="{{skuProducts.main_image_url}}">
+		<img ng-src="{{skuProducts.data.main_image_url}}">
 		</div>
-		<p>{{skuProducts.product_description}}</p>
-		<h2><b>Price:</b>${{skuProducts.map_price}}</h2>
+		<p>{{skuProducts.data.product_description}}</p>
+		<h2><b>Price:</b>${{skuProducts.data.map_price}}</h2>
 	</div>
 	
 	<div class="list item">
      <label class="item-input item-stacked-label">
    <span class="input-label">Quantity</span>
-   <input type="text" ng-model="skuProducts.multipack_quantity">
+   <input type="text" ng-model="skuProducts.data.multipack_quantity">
    </label>
     <label class="item-input item-stacked-label">
    <span class="input-label">Product Weight</span>
-   <input type="text" ng-model="skuProducts.shipping_weight_pounds">
+   <input type="text" ng-model="skuProducts.data.shipping_weight_pounds">
    </label>
     <label class="item-input item-stacked-label">
    <span class="input-label">Product length</span>
-   <input type="text" ng-model="skuProducts.multipack_quantity">
+   <input type="text" ng-model="skuProducts.data.multipack_quantity">
    </label>
     <label class="item-input item-stacked-label">
    <span class="input-label">Product width</span>
-   <input type="text" ng-model="skuProducts.package_width_inches">
+   <input type="text" ng-model="skuProducts.data.package_width_inches">
    </label>
     <label class="item-input item-stacked-label">
    <span class="input-label">Product Height</span>
-   <input type="text" ng-model="skuProducts.package_height_inches">
+   <input type="text" ng-model="skuProducts.data.package_height_inches">
    </label>
     <label class="item-input item-stacked-label">
    <span class="input-label">Last Update</span>
-   <input type="text" ng-model="skuProducts.sku_last_update">
+   <input type="text" ng-model="skuProducts.data.sku_last_update">
    </label>
     <label class="item-input item-stacked-label">
    <span class="input-label">Status</span>

@@ -1,10 +1,14 @@
 <ion-view view-title="SKU List">
-    <ion-content>
+     <ion-content class="padding">
         <ion-list>
+        <div class="list">
+        <div class="item item-body">
             <ion-item class="item-avatar" ng-repeat="skuId in skuListProducts.sku_urls" type="item-text-wrap" href="#/tab/sku/{{skuId}}">
                 <img ng-src="{{product.smallThumbnail}}">
                 <h2>{{skuId}}</h2>
             </ion-item>
+            </div>
+            </div>
         </ion-list>
     </ion-content>
 </ion-view>
