@@ -3,12 +3,16 @@
         <ion-list>
         <div class="list">
         <div class="item item-body">
-            <ion-item class="item-avatar" ng-repeat="skuId in skuListProducts.sku_urls" type="item-text-wrap" href="#/tab/sku/{{skuId}}">
+            <ion-item class="item-avatar" ng-repeat="skuId in skuListProducts.sku_urls | offset:(currentPage-1)*itemsPerPage | limitTo:itemsPerPage " type="item-text-wrap" href="#/tab/sku/{{skuId}}">
                 <img ng-src="{{product.smallThumbnail}}">
                 <h2>{{skuId}}</h2>
             </ion-item>
+            
             </div>
             </div>
+             <button ng-click="currentPage=currentPage-1" class="button button-small button-calm" ng-disabled="currentPage<=1">&laquo;Back</button>
+ <!--  {{currentPage}}/{{totalPages}} -->
+  <button ng-click="currentPage=currentPage+10"class="button button-small button-calm" ng-disabled="currentPage>=totalPages">Next &raquo;</button>
         </ion-list>
     </ion-content>
 </ion-view>

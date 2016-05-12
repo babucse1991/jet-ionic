@@ -1,11 +1,27 @@
-<ion-view view-title="SkuList">
-  <ion-content class="padding">
-    <div class="list">
-      <div class="item item-body">
-        <ion-item class="item-avatar" ng-repeat="orderId in skuOrderListProducts.order_urls" href="#/tab/skuOrderDetail/{{orderId}}">
-       <h2>{{orderId}}</h2>
-        </ion-item>
-      </div>
-    </div>
-  </ion-content>
-</ion-view>
+<ion-view view-title="Sku Order List"> <ion-content
+	class="padding">
+<div class="list">
+	<div class="item item-body">
+		<ion-item class="item-avatar"
+			ng-repeat="orderId in skuOrderListProducts.order_urls | offset:(currentPage-1)*itemsPerPage | limitTo:itemsPerPage"
+			href="#/tab/skuOrderDetail/{{orderId}}">
+		<h2>{{orderId}}</h2>
+		</ion-item>
+		<div class="list">
+			<div class="item item-body">
+				<div ng-if="skuOrderListProducts.order_urls.length===0"
+					class="text-center notFoundCol">Data has been not found</div>
+			</div>
+		</div>
+		<button ng-click="currentPage=currentPage-1"
+			ng-hide="skuOrderListProducts.order_urls.length===0"
+			class="button button-small button-calm" ng-disabled="currentPage<=1">&laquo;Back</button>
+		<!--  {{currentPage}}/{{totalPages}} -->
+		<button ng-click="currentPage=currentPage+1"
+			ng-hide="skuOrderListProducts.order_urls.length===0"
+			class="button button-small button-calm"
+			ng-disabled="currentPage>=totalPages">Next &raquo;</button>
+	</div>
+</div>
+
+</ion-content> </ion-view>

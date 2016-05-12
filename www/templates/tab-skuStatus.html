@@ -1,0 +1,12 @@
+<ion-view view-title="Sku Status List">
+  <ion-content class="padding">
+    <div class="list">
+      <div class="item item-body">
+    
+        <ion-item class="item-avatar"ng-repeat="status in skuStatus.status_url"  href="#/tab/skuOrderList/{{status}}">
+       <h2 >{{status}}</h2>
+        </ion-item>
+      
+    </div>
+  </ion-content>
+</ion-view>

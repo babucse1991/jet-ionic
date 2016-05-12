@@ -22,6 +22,7 @@ angular.module('starter', ['ionic',
                            'SkuOrderListCtrl',
                            'SkuListViewCtrl',
                            'SkuOrderDetailCtrl',
+                           'SkuStatusCtrl',
                            'starter.services'])
 
                            .run(function ($ionicPlatform,localStorageService) {
@@ -188,15 +189,29 @@ angular.module('starter', ['ionic',
                         		   }
                         	   })
                         	   
-                        	  
+                        	   .state('tab.status', {
+                        		   url: '/status',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuStatus.html',
+                        				   controller: 'SkuStatusCtrl'
+                        					  
+                        			   }
+                        		   }
+                        	   })
                         	   
                         	    .state('tab.skuOrderList', {
-                        		   url: '/skuOrderList',
+                        		   url: '/skuOrderList/{status:.*}',
                         		   views: {
-                        			   'tab-OrderList': {
+                        			   'tab-Status': {
                         				   templateUrl: 'templates/tab-skuOrderList.html',
-                        				   controller: 'SkuOrderListCtrl'
-                        					  
+                        				   controller: 'SkuOrderListCtrl'/*,
+                        				   resolve: {
+                        					   statusUrlReturn: function (skuOrderListProducts, $stateParams) {
+                        						   var statusUrl = $stateParams.statusUrl;
+                        						   return skuOrderListProducts.get(statusUrl);
+                        					   }
+                        				   }*/
                         			   }
                         		   }
                         	   })
@@ -204,7 +219,7 @@ angular.module('starter', ['ionic',
                         	    .state('tab.skuOrderDetail', {
                         		   url: '/skuOrderDetail/{orderUrl:.*}',
                         		   views: {
-                        			   'tab-OrderList': {
+                        			   'tab-Status': {
                         				   templateUrl: 'templates/tab-skuOrderDetail.html',
                         				   controller: 'SkuOrderDetailCtrl',
                         					   resolve: {

@@ -34,6 +34,14 @@ angular.module('starter.services', [])
         }
     })
     
+     .factory('Status', function ($http) {
+        return {
+            get: function () {
+                return $http.get("../json/SKU-Status.json");
+            }
+        }
+    })
+    
          .factory('skuProducts', function ($http,localStorageService) {
         return {
             get: function (skuId) {
@@ -68,11 +76,11 @@ angular.module('starter.services', [])
     
     .factory('skuOrderListProducts', function ($http,localStorageService){
         return {
-       	 get: function () {
+       	 get: function (status) {
             	var bearerToken = localStorageService.get('bearerToken');
                 console.log(">>>userData222222222>>>>>"+ JSON.stringify(bearerToken.id_token));
                 return $http({
-	    			url: 'https://merchant-api.jet.com/api/orders/directedCancel' ,
+	    			url: 'https://merchant-api.jet.com/api/orders/' + status ,
 	    			method	: 'GET',
 	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
 	    			dataType: 'json'
