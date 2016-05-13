@@ -103,6 +103,24 @@ angular.module('starter.services', [])
             }
        }
     })
+    
+    .factory('skuCreateListService', function ($http,localStorageService) {
+	    return {
+	        post: function (productList) {
+	        	console.log(">>>sice>>>>>"+ JSON.stringify(productList))
+	        	alert(">>>sice>>>>>"+ JSON.stringify(productList))
+	        	var bearerToken = localStorageService.get('bearerToken');
+	        	 console.log(">>>skuCreateListService>>>>>"+ JSON.stringify(bearerToken.id_token));
+	            return $http({
+	    			url: 'https://merchant-api.jet.com/api/merchant-skus/'+productList.merchant_sku,
+	    			method	: 'PUT',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json',
+	    			data	: productList
+	    		});
+	        }
+	    }
+	})
 
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array

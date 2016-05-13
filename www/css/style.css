@@ -2,6 +2,9 @@
  input[type="text"] {
 	border: 1px solid lightgray !important;
 }
+textarea{
+	border: 1px solid lightgray !important;
+}
 input[type="password"] {
 	border: 1px solid lightgray !important;
 }
@@ -68,3 +71,10 @@ input[type="password"] {
 .notFoundCol{
 	color: #11c1f3;
 	}
+	
+
+.main{
+ 	
+     padding: 10px 25px 10px 25px;
+
+}

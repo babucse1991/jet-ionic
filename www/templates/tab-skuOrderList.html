@@ -5,7 +5,8 @@
 		<ion-item class="item-avatar"
 			ng-repeat="orderId in skuOrderListProducts.order_urls | offset:(currentPage-1)*itemsPerPage | limitTo:itemsPerPage"
 			href="#/tab/skuOrderDetail/{{orderId}}">
-		<h2>{{orderId}}</h2>
+			 <img src="http://www.mikeusa.com/Images/Categories/13986273-new-product.jpg">
+		<h2>{{orderId.split('/')[3]}}</h2>
 		</ion-item>
 		<div class="list">
 			<div class="item item-body">

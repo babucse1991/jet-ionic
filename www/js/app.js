@@ -23,6 +23,7 @@ angular.module('starter', ['ionic',
                            'SkuListViewCtrl',
                            'SkuOrderDetailCtrl',
                            'SkuStatusCtrl',
+                           'skuCreateListCtrl',
                            'starter.services'])
 
                            .run(function ($ionicPlatform,localStorageService) {
@@ -231,6 +232,18 @@ angular.module('starter', ['ionic',
                         			   }
                         		   }
                         	   })
+                        	   
+                        	   
+                        	   .state('tab.skuCreateList', {
+                        		   url: '/skuCreateList',
+                        		   views: {
+                        			   'tab-dash': {
+                        				   templateUrl: 'templates/skuCreateList.html',
+                        				   controller: 'skuCreateListCtrl'
+                        			   }
+                        		   }
+                        	   })
+                        	   
                         	   
                         	   .state('tab.account', {
                         		   url: '/account',
