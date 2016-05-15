@@ -1,13 +1,40 @@
 angular.module('SkuListCtrl', []).controller('SkuListCtrl', function ($scope, skuListProducts) {
     
-	skuListProducts.get().success(function (response) {
-        $scope.skuListProducts = response;
-      })     
-      $scope.itemsPerPage = 10;
-	  $scope.currentPage = 1;
-    })
+	
+	$scope.itemsPerPage = 10;
+	$scope.currentPage = 1;
+
+	
+	$scope.callSkuList = function () {
+		if (!angular.isUndefined($scope.skuListProducts)) {
+			$scope.skuLength = $scope.skuListProducts.length;	
+		} else {
+			$scope.skuLength = 0;
+		}
+		
+		
+		skuListProducts.get($scope.skuLength).success(function (response) {
+			if (!angular.isUndefined($scope.skuListProducts)) {
+				 $scope.skuListProducts.push.apply($scope.skuListProducts, response.sku_urls); 
+			} else {
+				$scope.skuListProducts = response.sku_urls;
+			}
+			
+			
+			console.log("$scope.skuListProducts ::: "+ JSON.stringify($scope.skuListProducts));
+			$scope.currentPage=$scope.currentPage+10
+	    });     
+	};
+	$scope.callSkuList();
+	
+      
+    
+    
+})
+    
+
 .filter('offset', function () {
 	  return function (input, offset) {
 		    return (input instanceof Array) ? input.slice(+offset) : input; 
 		  }
-		});
+});

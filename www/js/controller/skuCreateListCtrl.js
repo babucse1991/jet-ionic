@@ -1,7 +1,8 @@
 angular.module('skuCreateListCtrl', []) .controller('skuCreateListCtrl', function($scope,skuCreateListService,localStorageService ) {
 	  
 
-		/*var skuProducts = 'productList';
+	$scope.productTypeObject = {};	$scope.merchant_sku = {};
+		/*var skuProducts = 'productList';
 	var bearerTokenData = 'bearerToken';
 	
 	$scope.productLists = [];*/
@@ -11,14 +12,13 @@ angular.module('skuCreateListCtrl', []) .controller('skuCreateListCtrl', functio
 		//var skuProducts=skuProducts;
 		//console.log(">>>>>>>>>>$scope.skuProducts.length : "+ $scope.productLists.length);
 
-		skuCreateListService.post($scope.productList).success(function (response) {
-			$scope.productList.standard_product_codes.sss=productList.response;
+		console.log(">>>>>>>$scope.merchant_sku>>>>>>"+ $scope.merchant_sku.id);
+		$scope.productList.standard_product_codes.push($scope.productTypeObject);
+		
+		skuCreateListService.post($scope.productList, $scope.merchant_sku.id).success(function (response) {
+			console.log(JSON.stringify(response));
 			//$scope.bearerToken= response;
 		//	console.log(">>>>>>1st time login : " + JSON.stringify($scope.bearerToken));
-			$scope.productLists.push($scope.productList);
-			$scope.productList.standard_product_codes.push($scope.productList.standard_product_codes);
-			//localStorageService.set(skuProducts, $scope.productLists);
-			//localStorageService.set(bearerTokenData, $scope.bearerToken);
 			
 		});       
 

@@ -61,11 +61,11 @@ angular.module('starter.services', [])
      .factory('skuListProducts', function ($http,localStorageService) {
         return {
           
-        	 get: function () {
+        	 get: function (skuLenght) {
              	var bearerToken = localStorageService.get('bearerToken');
                  console.log(">>>userData333333333>>>>>"+ JSON.stringify(bearerToken.id_token));
                  return $http({
- 	    			url: 'https://merchant-api.jet.com/api/merchant-skus' ,
+ 	    			url: 'https://merchant-api.jet.com/api/merchant-skus?offset=' + skuLenght + '&limit=10' ,
  	    			method	: 'GET',
  	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
  	    			dataType: 'json'
@@ -106,13 +106,13 @@ angular.module('starter.services', [])
     
     .factory('skuCreateListService', function ($http,localStorageService) {
 	    return {
-	        post: function (productList) {
+	        post: function (productList, merchant_sku) {
 	        	console.log(">>>sice>>>>>"+ JSON.stringify(productList))
-	        	alert(">>>sice>>>>>"+ JSON.stringify(productList))
+	        	
 	        	var bearerToken = localStorageService.get('bearerToken');
-	        	 console.log(">>>skuCreateListService>>>>>"+ JSON.stringify(bearerToken.id_token));
+	        	
 	            return $http({
-	    			url: 'https://merchant-api.jet.com/api/merchant-skus/'+productList.merchant_sku,
+	    			url: 'https://merchant-api.jet.com/api/merchant-skus/'+merchant_sku,
 	    			method	: 'PUT',
 	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
 	    			dataType: 'json',
