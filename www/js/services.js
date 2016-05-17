@@ -1,9 +1,23 @@
 angular.module('starter.services', [])
 
 
-	.factory('tokenService', function ($http) {
+	.factory('Spinner', function ($http, $ionicLoading) {
+	    return {
+	        spin: function () {
+	        	$ionicLoading.show({
+	    		    content: 'Loading',
+	    		    animation: 'fade-in',
+	    		    showBackdrop: true,
+	    		    maxWidth: 200,
+	    		    showDelay: 0
+	    		  });
+	        }
+	    }
+	})
+	.factory('tokenService', function ($http, Spinner) {
 	    return {
 	        post: function (userModel) {
+	        	Spinner.spin();
 	            var url = '';
 	            return $http({
 	    			url: 'https://merchant-api.jet.com/api/token',
@@ -20,13 +34,15 @@ angular.module('starter.services', [])
 	        }
 	    }
 	})
-    .factory('Products', function ($http) {
+    .factory('Products', function ($http, Spinner) {
         return {
             top: function () {
+            	Spinner.spin();
                 var url = '../json/topproducts.json';
                 return $http.get(url);
             },
             get: function (productUrl) {
+            	Spinner.spin();
                 // Final url is productUrl + the _type=json argument
                 var url = productUrl + "?_type=json";
                 return $http.get(url);
@@ -34,17 +50,19 @@ angular.module('starter.services', [])
         }
     })
     
-     .factory('Status', function ($http) {
+     .factory('Status', function ($http, Spinner) {
         return {
             get: function () {
+            	Spinner.spin();
                 return $http.get("../json/SKU-Status.json");
             }
         }
     })
     
-         .factory('skuProducts', function ($http,localStorageService) {
+         .factory('skuProducts', function ($http,localStorageService, Spinner) {
         return {
             get: function (skuId) {
+            	Spinner.spin();
             	var bearerToken = localStorageService.get('bearerToken');
                 console.log(">>>userData>>>>>"+ JSON.stringify(bearerToken.id_token));
                 return $http({
@@ -58,10 +76,11 @@ angular.module('starter.services', [])
     })
     
        
-     .factory('skuListProducts', function ($http,localStorageService) {
+     .factory('skuListProducts', function ($http,localStorageService, Spinner) {
         return {
           
         	 get: function (skuLenght) {
+        		 Spinner.spin();
              	var bearerToken = localStorageService.get('bearerToken');
                  console.log(">>>userData333333333>>>>>"+ JSON.stringify(bearerToken.id_token));
                  return $http({
@@ -74,9 +93,10 @@ angular.module('starter.services', [])
         }
     })
     
-    .factory('skuOrderListProducts', function ($http,localStorageService){
+    .factory('skuOrderListProducts', function ($http,localStorageService, Spinner){
         return {
        	 get: function (status) {
+       		Spinner.spin();
             	var bearerToken = localStorageService.get('bearerToken');
                 console.log(">>>userData222222222>>>>>"+ JSON.stringify(bearerToken.id_token));
                 return $http({
@@ -89,9 +109,10 @@ angular.module('starter.services', [])
        }
     })
     
-     .factory('skuOrderDetailProducts', function ($http,localStorageService){
+     .factory('skuOrderDetailProducts', function ($http,localStorageService, Spinner){
         return {
        	 get: function (orderId) {
+       		 	Spinner.spin();
             	var bearerToken = localStorageService.get('bearerToken');
                 console.log(">>>userData11111111111>>>>>"+ JSON.stringify(bearerToken.id_token));
                 return $http({
@@ -104,11 +125,11 @@ angular.module('starter.services', [])
        }
     })
     
-    .factory('skuCreateListService', function ($http,localStorageService) {
+    .factory('skuCreateListService', function ($http,localStorageService, Spinner) {
 	    return {
 	        post: function (productList, merchant_sku) {
 	        	console.log(">>>sice>>>>>"+ JSON.stringify(productList))
-	        	
+	        	Spinner.spin();
 	        	var bearerToken = localStorageService.get('bearerToken');
 	        	
 	            return $http({
@@ -121,6 +142,25 @@ angular.module('starter.services', [])
 	        }
 	    }
 	})
+	
+	.factory('skuCreatAcknowledgetService', function ($http,localStorageService, Spinner) {
+	    return {
+	        post: function (ackDetails, jet_defined_order_id) {
+	        	console.log(">>>sice>>>>>"+ JSON.stringify(ackDetails))
+	        	Spinner.spin();
+	        	var bearerToken = localStorageService.get('bearerToken');
+	        	
+	            return $http({
+	    			url: 'https://merchant-api.jet.com/api/orders/' + jet_defined_order_id + '/acknowledge',
+	    			method	: 'PUT',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json',
+	    			data	: ackDetails
+	    		});
+	        }
+	    }
+	})
+
 
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array

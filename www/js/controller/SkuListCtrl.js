@@ -1,4 +1,4 @@
-angular.module('SkuListCtrl', []).controller('SkuListCtrl', function ($scope, skuListProducts) {
+angular.module('SkuListCtrl', []).controller('SkuListCtrl', function ($scope, skuListProducts, $ionicLoading) {
     
 	
 	$scope.itemsPerPage = 10;
@@ -14,6 +14,7 @@ angular.module('SkuListCtrl', []).controller('SkuListCtrl', function ($scope, sk
 		
 		
 		skuListProducts.get($scope.skuLength).success(function (response) {
+			$ionicLoading.hide();
 			if (!angular.isUndefined($scope.skuListProducts)) {
 				 $scope.skuListProducts.push.apply($scope.skuListProducts, response.sku_urls); 
 			} else {

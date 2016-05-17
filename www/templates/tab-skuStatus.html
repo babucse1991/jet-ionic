@@ -1,12 +1,23 @@
-<ion-view view-title="Sku Status List">
+<ion-view view-title="Sku Orders">
   <ion-content class="padding">
     <div class="list">
       <div class="item item-body">
     
-        <ion-item class="item-avatar"ng-repeat="status in skuStatus.status_url"  href="#/tab/skuOrderList/{{status}}">
-       <h2 >{{status}}</h2>
+        <ion-item class="item-avatar" href="#/tab/skuOrderList/created">
+       		<h2 >Created</h2>
         </ion-item>
-      
+        <ion-item class="item-avatar" href="#/tab/skuOrderList/ready">
+       		<h2 >Ready</h2>
+        </ion-item>
+        <ion-item class="item-avatar" href="#/tab/skuOrderList/acknowledged">
+       		<h2 >Acknowledged</h2>
+        </ion-item>
+        <ion-item class="item-avatar" href="#/tab/skuOrderList/inprogress">
+       		<h2 >Inprogress</h2>
+        </ion-item>
+        <ion-item class="item-avatar" href="#/tab/skuOrderList/complete">
+       		<h2 >Complete</h2>
+        </ion-item>
     </div>
   </ion-content>
 </ion-view>

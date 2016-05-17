@@ -1,7 +1,8 @@
 <ion-view view-title="SkuOrderDetail"> <ion-content
 	class="padding">
 <div class="list">
-	<div class="item item-divider item-calm divide_header">Buyer Detail</div>
+	<div class="item item-divider item-calm divide_header">Buyer
+		Detail</div>
 	<div class="item item-body">
 		<span class="col-sm-2 col-xs-6 side_label">Name</span><span
 			class="col-sm-10 col-xs-6 s_label">{{skuOrderDetailProducts.data.buyer.name}}</span>
@@ -17,7 +18,8 @@
 	</div>
 </div>
 <div class="list">
-	<div class="item item-divider item-calm divide_header">Order Detail</div>
+	<div class="item item-divider item-calm divide_header">Order
+		Detail</div>
 	<div class="item item-body">
 		<span class="col-sm-2 col-xs-6 side_label">Shipping Carrier</span><span
 			class="col-sm-10 col-xs-6 s_label">{{skuOrderDetailProducts.data.order_detail.request_shipping_carrier}}</span>
@@ -37,32 +39,34 @@
 </div>
 
 <div class="list">
-	<div class="item item-divider item-calm divide_header">Order Items</div>
-	<div ng-repeat="orderListProduct in skuOrderDetailProducts.data.order_items">
-	<div class="item item-body">
-		<span class="col-sm-2 col-xs-6 side_label" >Merchant Sku</span><span
-			class="col-sm-10 col-xs-6 s_label">{{orderListProduct.merchant_sku}}</span>
-	</div>
-	<div class="item item-body">
-		<span class="col-sm-2 col-xs-6 side_label">Order Quantity</span><span
-			class="col-sm-10 col-xs-6 s_label">{{orderListProduct.request_order_quantity}}</span>
-	</div>
-	<div class="item item-body">
-		<span class="col-sm-2 col-xs-6 side_label">Order Cancel Quantity</span><span
-			class="col-sm-10 col-xs-6 s_label">{{orderListProduct.request_order_cancel_qty}}</span>
-	</div>
-	<div class="item item-body">
-		<span class="col-sm-2 col-xs-6 side_label" >Product Tax</span><span
-			class="col-sm-10 col-xs-6 s_label">{{orderListProduct.item_price.item_tax}}</span>
-	</div>
-	<div class="item item-body">
-		<span class="col-sm-2 col-xs-6 side_label" >Shipping Cost</span><span
-			class="col-sm-10 col-xs-6 s_label">{{orderListProduct.item_price.item_shipping_cost}}</span>
-	</div>
-	<div class="item item-body">
-		<span class="col-sm-2 col-xs-6 side_label">Base Price</span><span
-			class="col-sm-10 col-xs-6 s_label">{{orderListProduct.item_price.base_price}}</span>
-	</div>
+	<div class="item item-divider item-calm divide_header">Order
+		Items</div>
+	<div
+		ng-repeat="orderListProduct in skuOrderDetailProducts.data.order_items">
+		<div class="item item-body">
+			<span class="col-sm-2 col-xs-6 side_label">Merchant Sku</span><span
+				class="col-sm-10 col-xs-6 s_label">{{orderListProduct.merchant_sku}}</span>
+		</div>
+		<div class="item item-body">
+			<span class="col-sm-2 col-xs-6 side_label">Order Quantity</span><span
+				class="col-sm-10 col-xs-6 s_label">{{orderListProduct.request_order_quantity}}</span>
+		</div>
+		<div class="item item-body">
+			<span class="col-sm-2 col-xs-6 side_label">Order Cancel
+				Quantity</span><span class="col-sm-10 col-xs-6 s_label">{{orderListProduct.request_order_cancel_qty}}</span>
+		</div>
+		<div class="item item-body">
+			<span class="col-sm-2 col-xs-6 side_label">Product Tax</span><span
+				class="col-sm-10 col-xs-6 s_label">{{orderListProduct.item_price.item_tax}}</span>
+		</div>
+		<div class="item item-body">
+			<span class="col-sm-2 col-xs-6 side_label">Shipping Cost</span><span
+				class="col-sm-10 col-xs-6 s_label">{{orderListProduct.item_price.item_shipping_cost}}</span>
+		</div>
+		<div class="item item-body">
+			<span class="col-sm-2 col-xs-6 side_label">Base Price</span><span
+				class="col-sm-10 col-xs-6 s_label">{{orderListProduct.item_price.base_price}}</span>
+		</div>
 	</div>
 	<div class="item item-body">
 		<span class="col-sm-2 col-xs-6 side_label">Placed Date</span><span
@@ -70,7 +74,8 @@
 	</div>
 </div>
 <div class="list">
-	<div class="item item-divider item-calm divide_header">Order Totals</div>
+	<div class="item item-divider item-calm divide_header">Order
+		Totals</div>
 	<div class="item item-body">
 		<span class="col-sm-2 col-xs-6 side_label">Product Tax</span><span
 			class="col-sm-10 col-xs-6 s_label">{{skuOrderDetailProducts.data.order_totals.item_price.item_tax}}</span>
@@ -90,7 +95,8 @@
 </div>
 
 <div class="list">
-	<div class="item item-divider item-calm divide_header">Shipping To</div>
+	<div class="item item-divider item-calm divide_header">Shipping
+		To</div>
 	<div class="item item-body">
 		<span class="col-sm-2 col-xs-6 side_label">Name</span><span
 			class="col-sm-10 col-xs-6 s_label">{{skuOrderDetailProducts.data.shipping_to.recipient.name}}</span>
@@ -115,6 +121,7 @@
 		<span class="col-sm-2 col-xs-6 side_label">State</span><span
 			class="col-sm-10 col-xs-6 s_label">{{skuOrderDetailProducts.data.shipping_to.address.state}}</span>
 	</div>
-
 </div>
+<button type="button" class="btn btn-primary" ng-click="CreatAcknowledge()">Acknowledge</button>
+<button type="button" class="btn btn-primary" ng-click="">Reject</button>
 </ion-content> </ion-view>

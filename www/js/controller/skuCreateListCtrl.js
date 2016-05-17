@@ -1,4 +1,4 @@
-angular.module('skuCreateListCtrl', []) .controller('skuCreateListCtrl', function($scope,skuCreateListService,localStorageService ) {
+angular.module('skuCreateListCtrl', []) .controller('skuCreateListCtrl', function($scope,skuCreateListService,localStorageService, $ionicLoading ) {
 	  
 
 	$scope.productTypeObject = {};	$scope.merchant_sku = {};
@@ -17,6 +17,9 @@ angular.module('skuCreateListCtrl', []) .controller('skuCreateListCtrl', functio
 		
 		skuCreateListService.post($scope.productList, $scope.merchant_sku.id).success(function (response) {
 			console.log(JSON.stringify(response));
+			$ionicLoading.hide();
+			$scope.productList = {};
+			$scope.productTypeObject = {};
 			//$scope.bearerToken= response;
 		//	console.log(">>>>>>1st time login : " + JSON.stringify($scope.bearerToken));
 			

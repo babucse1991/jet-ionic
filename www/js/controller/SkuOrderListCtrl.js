@@ -1,9 +1,10 @@
-angular.module('SkuOrderListCtrl', []).controller('SkuOrderListCtrl', function ($scope, skuOrderListProducts,$stateParams) {
+angular.module('SkuOrderListCtrl', []).controller('SkuOrderListCtrl', function ($scope, skuOrderListProducts,$stateParams, $ionicLoading) {
       
 	
 	 var status = $stateParams.status;
 	skuOrderListProducts.get(status).success(function (response) {
         $scope.skuOrderListProducts = response;
+        $ionicLoading.hide();
       })        
      
       $scope.itemsPerPage = 10;

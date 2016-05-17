@@ -2,6 +2,9 @@
  input[type="text"] {
 	border: 1px solid lightgray !important;
 }
+ input[type="number"] {
+	border: 1px solid lightgray !important;
+}
 textarea{
 	border: 1px solid lightgray !important;
 }
@@ -22,6 +25,11 @@ input[type="password"] {
     color: #080000 !important;
     font-size: 14px;
     
+}
+
+.spinner svg {
+  width: 100% !important;
+  height: 85px !important;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);

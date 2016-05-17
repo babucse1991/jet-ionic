@@ -1,11 +1,11 @@
 {
 
     "status_url":[
-        "created",
-        "ready",
-        "acknowledged",
-        "inprogress",
-        "complete"
+        "Created",
+        "Ready",
+        "Acknowledged",
+        "Inprogress",
+        "Complete"
        
     ]
 
