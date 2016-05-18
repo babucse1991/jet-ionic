@@ -1,6 +1,5 @@
 angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $state,localStorageService, tokenService, $location, $ionicLoading ) {
 	  
-
 	var userData = 'user';
 	var bearerTokenData = 'bearerToken';
 
@@ -37,6 +36,4 @@ angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $sta
         }
 	}
 	$scope.getLogIn();
-	
-
 });

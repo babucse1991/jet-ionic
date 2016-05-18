@@ -11,7 +11,8 @@
             
             </div>
             </div>
-  <button ng-click="callSkuList()"class="button button-small button-calm" >More &raquo;</button>
+            
+  <button ng-hide="skuListProducts.length===0" ng-click="callSkuList()"class="button button-small button-calm" >More &raquo;</button>
         </ion-list>
     </ion-content>
 </ion-view>

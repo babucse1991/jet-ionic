@@ -24,10 +24,12 @@ angular.module('starter', ['ionic',
                            'SkuOrderDetailCtrl',
                            'SkuStatusCtrl',
                            'skuCreateListCtrl',
+                           'skuReturnListCtrl',
+                           'SkuReturnDetailCtrl',
                            'starter.services'])
 
                            .run(function ($ionicPlatform,localStorageService) {
-                        	  
+
                         	   $ionicPlatform.ready(function () {
                         		   // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                         		   // for form inputs)
@@ -55,8 +57,8 @@ angular.module('starter', ['ionic',
                         		   templateUrl: 'templates/sign-in.html',
                         		   controller: 'SignInCtrl'
                         	   })
-                        	   
-                        	    .state('Re-password', {
+
+                        	   .state('Re-password', {
                         		   url: '/Re-password',
                         		   templateUrl: 'templates/Re-password.html',
                         		   controller: 'RePasswordCtrl'
@@ -151,18 +153,18 @@ angular.module('starter', ['ionic',
                         		   }
                         	   })
 
-                        	 /*  .state('tab.tab-sku', {
+                        	   /*  .state('tab.tab-sku', {
                         		   url: '/sku',
                         		   views: {
                         			   'tab-sku': {
                         				   templateUrl: 'templates/tab-sku.html',
                         				   controller: 'SkuListCtrl',
-                        				  
+
                         			   }
                         		   }
                         	   })*/
-                        	   
-                        	    .state('tab.skuListView', {
+
+                        	   .state('tab.skuListView', {
                         		   url:  '/sku/{skuUrl:.*}',
                         		   views: {
                         			   'tab-SkuList': {
@@ -174,34 +176,33 @@ angular.module('starter', ['ionic',
                         						   return skuProducts.get(skuUrl);
                         					   }
                         				   }
-                        					  
+
                         			   }
                         		   }
                         	   })
-                        	   
+
                         	   .state('tab.skuList', {
                         		   url: '/skuList',
                         		   views: {
                         			   'tab-SkuList': {
                         				   templateUrl: 'templates/tab-skuList.html',
                         				   controller: 'SkuListCtrl'
-                        					  
+
                         			   }
                         		   }
                         	   })
-                        	   
+
                         	   .state('tab.status', {
                         		   url: '/status',
                         		   views: {
                         			   'tab-Status': {
                         				   templateUrl: 'templates/tab-skuStatus.html',
                         				   controller: 'SkuStatusCtrl'
-                        					  
                         			   }
                         		   }
                         	   })
-                        	   
-                        	    .state('tab.skuOrderList', {
+
+                        	   .state('tab.skuOrderList', {
                         		   url: '/skuOrderList/{status:.*}',
                         		   views: {
                         			   'tab-Status': {
@@ -216,24 +217,53 @@ angular.module('starter', ['ionic',
                         			   }
                         		   }
                         	   })
-                        	   
-                        	    .state('tab.skuOrderDetail', {
+
+                        	   .state('tab.skuReturnList', {
+                        		   url: '/skuReturnList/{returns:.*}',
+                        		   reload: true,
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuReturnList.html',
+                        				   controller: 'skuReturnListCtrl'
+                        					 
+                        			   }
+                        		   }
+                        	   })
+
+                        	   .state('tab.skuOrderDetail', {
                         		   url: '/skuOrderDetail/{orderUrl:.*}',
                         		   views: {
                         			   'tab-Status': {
                         				   templateUrl: 'templates/tab-skuOrderDetail.html',
                         				   controller: 'SkuOrderDetailCtrl',
-                        					   resolve: {
-                        						   orderUrlReturn: function (skuOrderDetailProducts, $stateParams) {
-                            						   var orderUrl = $stateParams.orderUrl;
-                            						   return skuOrderDetailProducts.get(orderUrl);
-                            					   }
-                            				   }
+                        				   resolve: {
+                        					   orderUrlReturn: function (skuOrderDetailProducts, $stateParams) {
+                        						   var orderUrl = $stateParams.orderUrl;
+                        						   return skuOrderDetailProducts.get(orderUrl);
+                        					   }
+                        				   }
                         			   }
                         		   }
                         	   })
-                        	   
-                        	   
+
+                        	   .state('tab.skuReturnDetail', {
+                        		   url: '/skuReturnDetail/{returnUrl:.*}',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuReturnDetail.html',
+                        				   controller: 'SkuReturnDetailCtrl',
+                        				   resolve: {
+                        					   returnUrlReturn: function (skuReturnDetailProducts, $stateParams) {
+                        						  
+                        						   var returnUrl = $stateParams.returnUrl;
+                        						  
+                        						   return skuReturnDetailProducts.get(returnUrl);
+                        					   }
+                        				   }
+                        			   }
+                        		   }
+                        	   })
+
                         	   .state('tab.skuCreateList', {
                         		   url: '/skuCreateList',
                         		   views: {
@@ -243,8 +273,8 @@ angular.module('starter', ['ionic',
                         			   }
                         		   }
                         	   })
-                        	   
-                        	   
+
+
                         	   .state('tab.account', {
                         		   url: '/account',
                         		   views: {
@@ -258,5 +288,5 @@ angular.module('starter', ['ionic',
                         	   // if none of the above states are matched, use this as the fallback
                         	   $urlRouterProvider.otherwise('/sign-in');
                         	   localStorageServiceProvider
-                     	      .setPrefix('jet-ionic');
+                        	   .setPrefix('jet-ionic');
                            });

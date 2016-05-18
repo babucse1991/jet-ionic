@@ -1,15 +1,15 @@
-angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', function ($scope, orderUrlReturn, $ionicLoading,skuCreatAcknowledgetService) {
+angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', function ($scope, orderUrlReturn,$location,$window, $ionicLoading,$ionicPopup,skuCreatAcknowledgetService) {
 	//alert( JSON.stringify(orderUrlReturn))
 //	console.log(">>>>>skuOrderListProducts>>>>>>>>>>"+ JSON.stringify(orderUrlReturn));
-	
+
 	$scope.skuOrderDetailProducts = orderUrlReturn;
 
 	$ionicLoading.hide();
 
 
 	$scope.CreatAcknowledge = function(){
-		
-		var ackData = {
+
+		var acknowledgData = {
 				"acknowledgement_status": "accepted", 
 				"alt_order_id": $scope.skuOrderDetailProducts.data.alt_order_id,
 				"order_items": [
@@ -20,13 +20,21 @@ angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', functi
 				                ]
 		};
 
-		skuCreatAcknowledgetService.post(ackData, $scope.skuOrderDetailProducts.data.merchant_order_id).success(function (response) {
-			$scope.actPerformed=true;
+		skuCreatAcknowledgetService.post(acknowledgData, $scope.skuOrderDetailProducts.data.merchant_order_id).success(function (response) {
+			
+			 $ionicPopup.alert({
+	              title: 'acknowledgement_status',
+	              content: 'accepted!!!'
+	            }).then(function(res) {
+	            	
+	            	
+	            });
+			/*$scope.actPerformed=true;*/
 			$ionicLoading.hide();
 		});       
 	}
 
-$scope.CreatRegect = function(){
+	$scope.CreatRegect = function(){
 		var regectData = {
 				"acknowledgement_status": "rejected - item level error", 
 				"alt_order_id": $scope.skuOrderDetailProducts.data.alt_order_id,

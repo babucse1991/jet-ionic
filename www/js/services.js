@@ -161,7 +161,57 @@ angular.module('starter.services', [])
 	    }
 	})
 
+	.factory('skuReturnListProducts', function ($http,localStorageService, Spinner){
+        return {
+       	 get: function (returns) {
+       		Spinner.spin();
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>returns>>>>>"+ JSON.stringify(returns));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api/returns/' + returns,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
+    })
+    
+    .factory('skuReturnDetailProducts', function ($http,localStorageService, Spinner){
+        return {
+       	 get: function (returnId) {
+       		 	Spinner.spin();
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>userData199999111>>>>>"+ JSON.stringify(bearerToken.id_token));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api' + returnId ,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
+    })
 
+    .factory('skuCompleteReturnService', function ($http,localStorageService, Spinner) {
+	    return {
+	        post: function (completeReturn, jet_return_id) {
+	        	console.log(">>>sice>>>>>"+ JSON.stringify(completeReturn))
+	        	//Spinner.spin();
+	        	var bearerToken = localStorageService.get('bearerToken');
+	        	
+	            return $http({
+	    			url: 'https://merchant-api.jet.com/api/returns/' + jet_return_id + '/complete',
+	    			method	: 'PUT',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json',
+	    			data	: completeReturn
+	    		});
+	        }
+	    }
+	})
+    
+    
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array
 
