@@ -211,7 +211,69 @@ angular.module('starter.services', [])
 	    }
 	})
     
+	.factory('skuRefundListProducts', function ($http,localStorageService, Spinner){
+        return {
+       	 get: function (refund) {
+       		Spinner.spin();
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>refund>>>>>"+ JSON.stringify(refund));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api/refunds/' + refund,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
+    })
     
+    .factory('skuSettlementListProducts', function ($http,localStorageService, Spinner){
+        return {
+       	 get: function (settlement) {
+       		//Spinner.spin();
+            	var bearerToken = localStorageService.get('bearerToken');
+               
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api/settlement/' + settlement,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
+    })
+    
+     .factory('skuSettlementDetailProducts', function ($http,localStorageService, Spinner){
+        return {
+       	 get: function (settlement_id) {
+       		 	Spinner.spin();
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>settlement_id>>>>>"+ JSON.stringify(bearerToken.id_token));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api/' + settlement_id ,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
+    })
+    
+    .factory('skuSettlementOrderDetailProducts', function ($http,localStorageService, Spinner){
+        return {
+       	 get: function (settlement_id) {
+       		 	Spinner.spin();
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>settlement_id>>>>>"+ JSON.stringify(bearerToken.id_token));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api/' + settlement_id +'/orders' ,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
+    })
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array
 

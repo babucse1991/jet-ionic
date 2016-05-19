@@ -26,6 +26,10 @@ angular.module('starter', ['ionic',
                            'skuCreateListCtrl',
                            'skuReturnListCtrl',
                            'SkuReturnDetailCtrl',
+                           'skuRefundListCtrl',
+                           'skuSettlementListCtrl',
+                           'skuSettlementDetailCtrl',
+                           'skuSettlementOrderDetailCtrl',
                            'starter.services'])
 
                            .run(function ($ionicPlatform,localStorageService) {
@@ -218,18 +222,6 @@ angular.module('starter', ['ionic',
                         		   }
                         	   })
 
-                        	   .state('tab.skuReturnList', {
-                        		   url: '/skuReturnList/{returns:.*}',
-                        		   reload: true,
-                        		   views: {
-                        			   'tab-Status': {
-                        				   templateUrl: 'templates/tab-skuReturnList.html',
-                        				   controller: 'skuReturnListCtrl'
-                        					 
-                        			   }
-                        		   }
-                        	   })
-
                         	   .state('tab.skuOrderDetail', {
                         		   url: '/skuOrderDetail/{orderUrl:.*}',
                         		   views: {
@@ -246,6 +238,20 @@ angular.module('starter', ['ionic',
                         		   }
                         	   })
 
+                        	   .state('tab.skuReturnList', {
+                        		   url: '/skuReturnList/{returns:.*}',
+                        		   reload: true,
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuReturnList.html',
+                        				   controller: 'skuReturnListCtrl'
+
+                        			   }
+                        		   }
+                        	   })
+
+
+
                         	   .state('tab.skuReturnDetail', {
                         		   url: '/skuReturnDetail/{returnUrl:.*}',
                         		   views: {
@@ -254,10 +260,89 @@ angular.module('starter', ['ionic',
                         				   controller: 'SkuReturnDetailCtrl',
                         				   resolve: {
                         					   returnUrlReturn: function (skuReturnDetailProducts, $stateParams) {
-                        						  
+
                         						   var returnUrl = $stateParams.returnUrl;
-                        						  
+
                         						   return skuReturnDetailProducts.get(returnUrl);
+                        					   }
+                        				   }
+                        			   }
+                        		   }
+                        	   })
+
+                        	   .state('tab.skuRefundList', {
+                        		   url: '/skuRefundList/{refund:.*}',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuRefundList.html',
+                        				   controller: 'skuRefundListCtrl'
+
+                        			   }
+                        		   }
+                        	   })
+
+
+                        	   /*
+                        	   .state('tab.skuReturnDetail', {
+                        		   url: '/skuReturnDetail/{returnUrl:.*}',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuReturnDetail.html',
+                        				   controller: 'SkuReturnDetailCtrl',
+                        				   resolve: {
+                        					   returnUrlReturn: function (skuReturnDetailProducts, $stateParams) {
+
+                        						   var returnUrl = $stateParams.returnUrl;
+
+                        						   return skuReturnDetailProducts.get(returnUrl);
+                        					   }
+                        				   }
+                        			   }
+                        		   }
+                        	   })*/
+
+                        	   .state('tab.skuSettlementList', {
+                        		   url: '/skuSettlementList/{dateId:.*}',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuSettlementList.html',
+                        				   controller: 'skuSettlementListCtrl'
+
+                        			   }
+                        		   }
+                        	   })
+
+
+                        	   .state('tab.skuSettlementDetail', {
+                        		   url: '/skuSettlementReportDetail/{settlement_id:.*}',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuSettlementDetail.html',
+                        				   controller: 'skuSettlementDetailCtrl',
+                        				   resolve: {
+                        					   settlement_idReturn: function (skuSettlementDetailProducts, $stateParams) {
+
+                        						   var settlement_id = $stateParams.settlement_id;
+
+                        						   return skuSettlementDetailProducts.get(settlement_id);
+                        					   }
+                        				   }
+                        			   }
+                        		   }
+                        	   })
+
+                        	   .state('tab.skuSettlementReportOrderDetail', {
+                        		   url: '/skuSettlementReportOrderDetail/{settlement_id:.*}',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuSettlementReportOrderDetail.html',
+                        				   controller: 'skuSettlementOrderDetailCtrl',
+                        				   resolve: {
+                        					   settlement_idReturn: function (skuSettlementOrderDetailProducts, $stateParams) {
+
+                        						   var settlement_id = $stateParams.settlement_id;
+
+                        						   return skuSettlementOrderDetailProducts.get(settlement_id);
                         					   }
                         				   }
                         			   }

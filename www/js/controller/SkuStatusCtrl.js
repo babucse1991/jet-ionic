@@ -1,5 +1,8 @@
-angular.module('SkuStatusCtrl', []).controller('SkuStatusCtrl', function ($scope,Status, $ionicLoading) {
-     
+angular.module('SkuStatusCtrl', []).controller('SkuStatusCtrl', function ($scope,Status, $ionicLoading,$filter) {
+	$scope.date = new Date();
+	$scope.settlement_date={
+			"dateId": "10"
+	}
 
     Status.get().success(function (response) {
         $scope.skuStatus = response;

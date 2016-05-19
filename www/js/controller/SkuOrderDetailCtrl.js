@@ -23,8 +23,8 @@ angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', functi
 		skuCreatAcknowledgetService.post(acknowledgData, $scope.skuOrderDetailProducts.data.merchant_order_id).success(function (response) {
 			
 			 $ionicPopup.alert({
-	              title: 'acknowledgement_status',
-	              content: 'accepted!!!'
+	              title: 'Jet',
+	              content: 'Acknowledged!!!'
 	            }).then(function(res) {
 	            	
 	            	

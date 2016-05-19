@@ -40,5 +40,32 @@
         </ion-item>
     </div>
     </div>
+    
+    <div class="list">
+    <div class="item item-divider item-calm">Refunds</div>
+      <div class="item item-body">
+    
+        <ion-item class="item-avatar" href="#/tab/skuRefundList/created">
+       		<h2>Created</h2>
+        </ion-item>
+        <ion-item class="item-avatar" href="#/tab/skuRefundList/processing">
+       		<h2>Processing</h2>
+        </ion-item>
+        <ion-item class="item-avatar" href="#/tab/skuRefundList/accepted">
+       		<h2>Accepted</h2>
+        </ion-item>
+        <ion-item class="item-avatar" href="#/tab/skuRefundList/rejected">
+       		<h2>Rejected</h2>
+        </ion-item>
+    </div>
+    </div>
+    
+     <div class="list">
+    <div class="item item-divider item-calm">Settlement</div>
+      <div class="item item-body">
+    
+        <ion-item class="item-avatar" href="#/tab/skuSettlementList/{{settlement_date.dateId}}">
+       		<h2>{{settlement_date.dateId}}</h2>
+        </ion-item></div></div>
   </ion-content>
 </ion-view>

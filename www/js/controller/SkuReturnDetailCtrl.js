@@ -25,18 +25,18 @@ angular.module('SkuReturnDetailCtrl', []).controller('SkuReturnDetailCtrl', func
 		};
 
 		skuCompleteReturnService.post(completeReturn, $scope.skuReturnDetailProducts.data.merchant_return_authorization_id).success(function (response) {
-
+			$ionicLoading.hide();
 			$ionicPopup.alert({
-				title: 'return_status',
-				content: 'accepted!!!'
+				title: 'Jet',
+				content: 'Returned!!!'
 			}).then(function(res) {
 
 				$state.go('tab.status',  {reload: true})
 			});
 
 
-			$scope.actPerformed=true;
-			$ionicLoading.hide();
+			
+			
 		});       
 	};
 
