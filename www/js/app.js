@@ -30,6 +30,7 @@ angular.module('starter', ['ionic',
                            'skuSettlementListCtrl',
                            'skuSettlementDetailCtrl',
                            'skuSettlementOrderDetailCtrl',
+                           'skuSettlementReturnDetailCtrl',
                            'starter.services'])
 
                            .run(function ($ionicPlatform,localStorageService) {
@@ -338,11 +339,29 @@ angular.module('starter', ['ionic',
                         				   templateUrl: 'templates/tab-skuSettlementReportOrderDetail.html',
                         				   controller: 'skuSettlementOrderDetailCtrl',
                         				   resolve: {
-                        					   settlement_idReturn: function (skuSettlementOrderDetailProducts, $stateParams) {
+                        					   settlement_idReportOrder: function (skuSettlementOrderDetailProducts, $stateParams) {
 
                         						   var settlement_id = $stateParams.settlement_id;
 
                         						   return skuSettlementOrderDetailProducts.get(settlement_id);
+                        					   }
+                        				   }
+                        			   }
+                        		   }
+                        	   })
+                        	   
+                        	   .state('tab.skuSettlementReturnDetail', {
+                        		   url: '/skuSettlementReturnDetail/{settlement_id:.*}',
+                        		   views: {
+                        			   'tab-Status': {
+                        				   templateUrl: 'templates/tab-skuSettlementReturnDetail.html',
+                        				   controller: 'skuSettlementReturnDetailCtrl',
+                        				   resolve: {
+                        					   settlement_idReturn: function (skuSettlementReturnDetailProducts, $stateParams) {
+
+                        						   var settlement_id = $stateParams.settlement_id;
+
+                        						   return skuSettlementReturnDetailProducts.get(settlement_id);
                         					   }
                         				   }
                         			   }

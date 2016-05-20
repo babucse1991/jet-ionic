@@ -274,6 +274,24 @@ angular.module('starter.services', [])
             }
        }
     })
+    
+    .factory('skuSettlementReturnDetailProducts', function ($http,localStorageService, Spinner){
+        return {
+       	 get: function (settlement_id) {
+       		 	Spinner.spin();
+            	var bearerToken = localStorageService.get('bearerToken');
+                console.log(">>>settlement_id>>>>>"+ JSON.stringify(bearerToken.id_token));
+                return $http({
+	    			url: 'https://merchant-api.jet.com/api' + settlement_id +'/returns' ,
+	    			method	: 'GET',
+	    			headers	: { 'Authorization' :  'Bearer ' + bearerToken.id_token },
+	    			dataType: 'json'
+	    		});
+            }
+       }
+    })
+    
+    
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array
 

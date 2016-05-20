@@ -30,6 +30,12 @@ input[type="password"] {
 .spinner svg {
   width: 100% !important;
   height: 85px !important;
+  color: #fff !important;
+}
+.loading-container .loading {
+    color: #fff !important;
+    font-size: 15px !important;
+    text-align: center !important;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
