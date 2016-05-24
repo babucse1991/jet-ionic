@@ -2,7 +2,7 @@
 	class="padding">
 <div class="list">
 	<div class="item item-body">
-		
+
 		<ion-item class="item-avatar"
 			ng-repeat="returnId in skureturnListProducts.return_urls"
 			href="#/tab/skuReturnDetail/{{returnId}}"> <img
@@ -10,14 +10,16 @@
 		<h2>{{returnId.split('/')[3]}}</h2>
 		</ion-item>
 		<div class="list">
-			<div class="item item-body">
-				<div ng-if="skureturnListProducts.return_urls.length===0"
+			<div class="item item-body">		
+					<div
+					ng-if="skureturnListProducts.return_urls.length===0"
 					class="text-center notFoundCol">No data found</div>
 			</div>
 		</div>
-		<div ng-hide="skureturnListProducts.return_urls.length===0">
+		<!-- <div ng-hide="skureturnListProducts.return_urls.length===0">
 		 <button  ng-click="callSkuList()"class="button button-small button-calm" >More &raquo;</button>
-	</div></div>
+	</div> -->
+	</div>
 </div>
 
 </ion-content> </ion-view>

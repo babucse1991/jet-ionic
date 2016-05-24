@@ -7,6 +7,9 @@ angular.module('skuReturnListCtrl', []).controller('skuReturnListCtrl', function
         
        $ionicLoading.hide();
      
-      });      
+      }).error(function (error) {
+			alert(">>>>>>>>>>"+JSON.stringify(error));
+			$ionicLoading.hide();
+		});        
      
   });

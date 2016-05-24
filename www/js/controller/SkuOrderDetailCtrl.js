@@ -53,7 +53,7 @@ angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', functi
 		}).error(function (error) {
 			console.log(">>>>>>>>>>"+JSON.stringify(error));
 			$ionicLoading.hide();
-		});;       
+		});       
 	}
 });
 

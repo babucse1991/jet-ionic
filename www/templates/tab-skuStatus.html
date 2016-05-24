@@ -60,12 +60,27 @@
     </div>
     </div>
     
-     <div class="list">
+  <!--    <div class="list">
     <div class="item item-divider item-calm">Settlement</div>
       <div class="item item-body">
     
-        <ion-item class="item-avatar" href="#/tab/skuSettlementList/{{settlement_date.dateId}}">
-       		<h2>{{settlement_date.dateId}}</h2>
-        </ion-item></div></div>
+        <ion-item class="item-avatar">
+       		<input type="text"placeholder="Date" ng-model="days">
+       		 <a href="#/tab/skuSettlementList/{{days}}" class="btn btn-default">Go</a>
+        </ion-item></div></div> -->
+        
+        
+        <div class="list">
+ <div class="item item-divider item-calm">Settlement</div>
+  <div class="item item-input-inset">
+   
+      <input type="text" placeholder="Date" ng-model="days">
+   <a href="#/tab/skuSettlementList/{{days}}">
+    <button class="button button-small">
+      Submit</button>
+    </a>
+  </div>
+
+</div>
   </ion-content>
 </ion-view>

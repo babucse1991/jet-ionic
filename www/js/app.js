@@ -303,12 +303,19 @@ angular.module('starter', ['ionic',
                         	   })*/
 
                         	   .state('tab.skuSettlementList', {
-                        		   url: '/skuSettlementList/{dateId:.*}',
+                        		   url: '/skuSettlementList/{days:.*}',
                         		   views: {
                         			   'tab-Status': {
                         				   templateUrl: 'templates/tab-skuSettlementList.html',
-                        				   controller: 'skuSettlementListCtrl'
+                        				   controller: 'skuSettlementListCtrl',
+                        					   resolve: {
+                            					   settlement_daysReturn: function (skuSettlementListProducts, $stateParams) {
 
+                            						   var days = $stateParams.days;
+
+                            						   return skuSettlementListProducts.get(days);
+                            					   }
+                            				   }
                         			   }
                         		   }
                         	   })

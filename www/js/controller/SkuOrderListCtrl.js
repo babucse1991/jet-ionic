@@ -5,6 +5,9 @@ angular.module('SkuOrderListCtrl', []).controller('SkuOrderListCtrl', function (
 	skuOrderListProducts.get(status).success(function (response) {
         $scope.skuOrderListProducts = response;
         $ionicLoading.hide();
-      });        
+      }).error(function (error) {
+			alert(">>>>>>>>>>"+ error);
+			$ionicLoading.hide();
+		});          
      
   });

@@ -1,12 +1,5 @@
-angular.module('skuSettlementListCtrl', []).controller('skuSettlementListCtrl', function ($scope, skuSettlementListProducts,$stateParams, $ionicLoading) {
+angular.module('skuSettlementListCtrl', []).controller('skuSettlementListCtrl', function ($scope, skuSettlementListProducts,$stateParams, $ionicLoading,settlement_daysReturn) {
 	
-	var settlement = $stateParams.dateId;
-	
-	skuSettlementListProducts.get(settlement).success(function (response) {
-        $scope.skuSettlementListProducts = response;
-        
-       $ionicLoading.hide();
-     
-      });      
-     
+	$scope.skuSettlementListProducts = settlement_daysReturn;      
+	$ionicLoading.hide();
   });

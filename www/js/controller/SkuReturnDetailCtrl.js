@@ -1,8 +1,7 @@
 angular.module('SkuReturnDetailCtrl', []).controller('SkuReturnDetailCtrl', function ($scope, returnUrlReturn,$ionicPopup, $ionicLoading, skuCompleteReturnService,$location,$state) {
+	
 	$scope.skuReturnDetailProducts = returnUrlReturn;
 	$ionicLoading.hide();
-
-
 	$scope.creatCompleteReturn = function(){
 
 		var completeReturn = {
@@ -30,8 +29,8 @@ angular.module('SkuReturnDetailCtrl', []).controller('SkuReturnDetailCtrl', func
 				title: 'Jet',
 				content: 'Returned!!!'
 			}).then(function(res) {
-
-				$state.go('tab.status',  {reload: true})
+				$location.path("/tab/status");
+				/*$state.go('tab.status',  {reload: true})*/
 			});
 
 
