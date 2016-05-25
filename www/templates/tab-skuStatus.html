@@ -59,28 +59,19 @@
         </ion-item>
     </div>
     </div>
-    
-  <!--    <div class="list">
-    <div class="item item-divider item-calm">Settlement</div>
-      <div class="item item-body">
-    
-        <ion-item class="item-avatar">
-       		<input type="text"placeholder="Date" ng-model="days">
-       		 <a href="#/tab/skuSettlementList/{{days}}" class="btn btn-default">Go</a>
-        </ion-item></div></div> -->
-        
-        
+   
         <div class="list">
  <div class="item item-divider item-calm">Settlement</div>
-  <div class="item item-input-inset">
-   
-      <input type="text" placeholder="Date" ng-model="days">
-   <a href="#/tab/skuSettlementList/{{days}}">
-    <button class="button button-small">
+   <div class="item item-body">
+ <label>Number Of Days</label>
+      <input type="text"  ng-model="days">
+  <a href="#/tab/skuSettlementList/{{days}}">
+  <br>
+    <button class="button button-small button-calm pull-right">
       Submit</button>
     </a>
   </div>
-
+ 
 </div>
   </ion-content>
 </ion-view>

@@ -9,7 +9,8 @@ angular.module('starter.services', [])
 				animation: 'fade-in',
 				showBackdrop: true,
 				maxWidth: 200,
-				showDelay: 0
+				showDelay: 0,
+				template: '<p class=""><ion-spinner icon="bubbles" class="spinner-calm"></ion-spinner></p>'
 			});
 		}
 	}
@@ -17,9 +18,6 @@ angular.module('starter.services', [])
 .factory('tokenService', function ($http, Spinner) {
 	return {
 		post: function (userModel) {
-			alert(">>>>>userModel.user>>>>>"+ JSON.stringify(userModel.user));
-			alert(">>>>>userModel.pass>>>>>"+ JSON.stringify(userModel.pass));
-			alert(">>>>>userModel.merchantId>>>>>"+ JSON.stringify(userModel.merchantId));
 			Spinner.spin();
 			var url = '';
 			return $http({
@@ -229,7 +227,7 @@ angular.module('starter.services', [])
 .factory('skuSettlementListProducts', function ($http,localStorageService, Spinner){
 	return {
 		get: function (date) {
-			Spinner.spin();
+			/*Spinner.spin();*/
 			var bearerToken = localStorageService.get('bearerToken');
 
 			return $http({

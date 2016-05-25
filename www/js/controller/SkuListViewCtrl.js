@@ -8,5 +8,8 @@ angular.module('SkuListViewCtrl', []).controller('SkuListViewCtrl', function ($s
         $ionicLoading.hide();
        // $scope.skuProducts.standard_product_codes.stdProduct =skuProducts.response;
        // console.log(JSON.stringify($scope.skuProducts.standard_product_codes))
-      })        
+      }).error(function (error) {
+			alert(">>>>>>>>>>"+JSON.stringify(error));
+			$ionicLoading.hide();
+		});         
     });

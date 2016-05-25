@@ -1,5 +1,5 @@
 angular.module('SkuReturnDetailCtrl', []).controller('SkuReturnDetailCtrl', function ($scope, returnUrlReturn,$ionicPopup, $ionicLoading, skuCompleteReturnService,$location,$state) {
-	
+
 	$scope.skuReturnDetailProducts = returnUrlReturn;
 	$ionicLoading.hide();
 	$scope.creatCompleteReturn = function(){
@@ -33,10 +33,10 @@ angular.module('SkuReturnDetailCtrl', []).controller('SkuReturnDetailCtrl', func
 				/*$state.go('tab.status',  {reload: true})*/
 			});
 
-
-			
-			
-		});       
+		}).error(function (error) {
+			alert(">>>>>>>>>>"+JSON.stringify(error));
+			$ionicLoading.hide();
+		});         
 	};
 
 

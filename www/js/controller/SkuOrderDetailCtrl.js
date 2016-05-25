@@ -8,7 +8,6 @@ angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', functi
 
 
 	$scope.CreatAcknowledge = function(){
-
 		var acknowledgData = {
 				"acknowledgement_status": "accepted", 
 				"alt_order_id": $scope.skuOrderDetailProducts.data.alt_order_id,
@@ -21,17 +20,19 @@ angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', functi
 		};
 
 		skuCreatAcknowledgetService.post(acknowledgData, $scope.skuOrderDetailProducts.data.merchant_order_id).success(function (response) {
-			
-			 $ionicPopup.alert({
-	              title: 'Jet',
-	              content: 'Acknowledged!!!'
-	            }).then(function(res) {
-	            	
-	            	
-	            });
+			$ionicPopup.alert({
+				title: 'Jet',
+				content: 'Acknowledged!!!'
+			}).then(function(res) {
+				$location.path("/tab/status");
+
+			});
 			/*$scope.actPerformed=true;*/
 			$ionicLoading.hide();
-		});       
+		}).error(function (error) {
+			alert(">>>>>>>>>>"+JSON.stringify(error));
+			$ionicLoading.hide();
+		});        
 	}
 
 	$scope.CreatRegect = function(){
@@ -51,9 +52,9 @@ angular.module('SkuOrderDetailCtrl', []).controller('SkuOrderDetailCtrl', functi
 			console.log("response>>>>>" + JSON.stringify(response));
 			$ionicLoading.hide();
 		}).error(function (error) {
-			console.log(">>>>>>>>>>"+JSON.stringify(error));
+			alert(">>>>>>>>>>"+JSON.stringify(error));
 			$ionicLoading.hide();
-		});       
+		});     
 	}
 });
 

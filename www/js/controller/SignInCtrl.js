@@ -1,4 +1,4 @@
-angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $state,localStorageService, tokenService, $location, $ionicLoading ) {
+angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $state,localStorageService, tokenService,$ionicPopup, $location, $ionicLoading ) {
 	  
 	var userData = 'userApiKey';
 	var bearerTokenData = 'bearerToken';
@@ -11,9 +11,7 @@ angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $sta
 	};
 
 	$scope.createLogIn = function () {
-		alert(">>>>createLogIn>>>>>>");
 		tokenService.post($scope.user).success(function (response) {
-			alert(">>>>>response>>>>>"+ JSON.stringify(response));
 			$ionicLoading.hide();
 			$scope.bearerToken= response;
 			console.log("login token : " + JSON.stringify($scope.bearerToken));
@@ -21,7 +19,12 @@ angular.module('SignInCtrl', []) .controller('SignInCtrl', function($scope, $sta
 			localStorageService.set(bearerTokenData, $scope.bearerToken);
 			$location.path("/tab/dash");
 		}).error(function (error) {
-			alert(">>>>error>>>>>>"+JSON.stringify(error));
+			$ionicPopup.alert({
+				title: 'Log In',
+				content: 'Error!!!'
+			}).then(function(res) {
+				
+			});
 			$ionicLoading.hide();
 		});     
 		

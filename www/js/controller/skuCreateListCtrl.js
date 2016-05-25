@@ -23,7 +23,10 @@ angular.module('skuCreateListCtrl', []) .controller('skuCreateListCtrl', functio
 			//$scope.bearerToken= response;
 		//	console.log(">>>>>>1st time login : " + JSON.stringify($scope.bearerToken));
 			
-		});       
+		}).error(function (error) {
+			alert(">>>>>>>>>>"+JSON.stringify(error));
+			$ionicLoading.hide();
+		});        
 
 	}
 
